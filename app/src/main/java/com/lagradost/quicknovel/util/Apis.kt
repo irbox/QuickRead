@@ -23,6 +23,7 @@ class Apis {
             AllNovelProvider(),
             //RanobesProvider(), // custom capcha
             NovelFullProvider(),
+            MyBlogProvider(), // <--- ADD YOURS HERE
             NovelBinProvider(),
             //MNovelFreeProvider(), // same as NovelFullVipProvider
             //EngNovelProvider(),
