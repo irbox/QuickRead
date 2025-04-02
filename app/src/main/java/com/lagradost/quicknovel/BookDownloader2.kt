@@ -777,6 +777,15 @@ object NotificationHelper {
     private var hasCreatedNotChanel = false
 
     fun ComponentActivity.requestNotifications() {
+        
+        // Ensure we're in the correct function and context
+        if (ContextCompat.checkSelfPermission(this, POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+            NotificationManagerCompat.from(this).notify(id, builder.build())
+        } else {
+        // Handle the case where the permission is not granted
+        Toast.makeText(this, "Notification permission not granted", Toast.LENGTH_SHORT).show()
+        }
+
         // Ask for notification permissions on Android 13
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
             ContextCompat.checkSelfPermission(
